@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Services - Nova Scotia Epoxy Flooring{% endblock %}
+
+{% block content %}
+<!-- Services Hero -->
+<section class="page-hero">
+    <div class="section-container">
+        <h1>Our Services</h1>
+        <p>Premium epoxy flooring solutions for residential and commercial properties</p>
+    </div>
+</section>
+
+<!-- Metallic Epoxy Flooring -->
+<section class="service-detail" id="metallic">
+    <div class="section-container">
+        <div class="service-grid">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='images/gallery1_metalic.jpg') }}" alt="Stunning metallic epoxy floor with swirling patterns">
+            </div>
+            <div class="service-content">
+                <div class="service-badge">Premium</div>
+                <h2>Metallic Epoxy Flooring</h2>
+                <p class="lead">Transform your space with breathtaking three-dimensional metallic effects that create a truly unique, luxurious finish.</p>
+                
+                <p>Our metallic epoxy systems use premium ALSAN pigments to create stunning visual depth with swirling, marble-like patterns. Each installation is completely unique, making your floor a one-of-a-kind work of art.</p>
+                
+                <h3>Key Features:</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Unique 3D metallic effects with depth and movement</li>
+                    <li><i class="fas fa-check"></i> Premium ALSAN pigments for vibrant, lasting color</li>
+                    <li><i class="fas fa-check"></i> Seamless, easy-to-clean surface</li>
+                    <li><i class="fas fa-check"></i> UV-resistant to prevent fading and yellowing</li>
+                    <li><i class="fas fa-check"></i> Perfect for residential and commercial spaces</li>
+                    <li><i class="fas fa-check"></i> Custom color combinations available</li>
+                </ul>
+                
+                <div class="service-cta">
+                    <a href="{{ url_for('quote') }}" class="btn btn-primary btn-3d">Request a Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Flake Flooring -->
+<section class="service-detail service-reverse" id="flake">
+    <div class="section-container">
+        <div class="service-grid">
+            <div class="service-content">
+                <div class="service-badge">Popular</div>
+                <h2>Flake Flooring Systems</h2>
+                <p class="lead">Durable, decorative flake systems combining beauty, texture, and exceptional slip resistance for high-traffic areas.</p>
+                
+                <p>Vinyl flake flooring offers the perfect blend of aesthetics and functionality. Colored flakes are broadcast into the epoxy base coat, then sealed with a clear topcoat for a textured, attractive finish that hides imperfections and provides superior traction.</p>
+                
+                <h3>Key Features:</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Enhanced slip resistance for safety</li>
+                    <li><i class="fas fa-check"></i> Hides floor imperfections and stains</li>
+                    <li><i class="fas fa-check"></i> Wide variety of flake colors and blends</li>
+                    <li><i class="fas fa-check"></i> Extremely durable and impact-resistant</li>
+                    <li><i class="fas fa-check"></i> Ideal for garages, basements, and workshops</li>
+                    <li><i class="fas fa-check"></i> Chemical and stain resistant</li>
+                </ul>
+                
+                <div class="service-cta">
+                    <a href="{{ url_for('quote') }}" class="btn btn-primary btn-3d">Request a Quote</a>
+                </div>
+            </div>
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='images/gallery3.png') }}" alt="Decorative flake epoxy flooring in garage">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Commercial/Industrial Coatings -->
+<section class="service-detail" id="commercial">
+    <div class="section-container">
+        <div class="service-grid">
+            <div class="service-image">
+                <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Industrial epoxy coating in commercial warehouse">
+            </div>
+            <div class="service-content">
+                <div class="service-badge">Industrial Strength</div>
+                <h2>Commercial & Industrial Coatings</h2>
+                <p class="lead">Heavy-duty epoxy solutions designed to withstand the most demanding commercial and industrial environments.</p>
+                
+                <p>Our commercial-grade Soprema epoxy systems are engineered for high-traffic, high-stress applications. From retail showrooms to manufacturing facilities, we deliver flooring that performs under pressure while maintaining a professional appearance.</p>
+                
+                <h3>Key Features:</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Industrial-strength durability for heavy machinery</li>
+                    <li><i class="fas fa-check"></i> Chemical and oil resistant formulations</li>
+                    <li><i class="fas fa-check"></i> Fast-cure options to minimize downtime</li>
+                    <li><i class="fas fa-check"></i> Anti-slip additives for workplace safety</li>
+                    <li><i class="fas fa-check"></i> Custom line striping and safety markings</li>
+                    <li><i class="fas fa="check"></i> Low maintenance, long-lasting performance</li>
+                </ul>
+                
+                <h3>Applications:</h3>
+                <div class="applications">
+                    <span class="app-tag"><i class="fas fa-store"></i> Retail Spaces</span>
+                    <span class="app-tag"><i class="fas fa-warehouse"></i> Warehouses</span>
+                    <span class="app-tag"><i class="fas fa-industry"></i> Manufacturing</span>
+                    <span class="app-tag"><i class="fas fa-car"></i> Auto Shops</span>
+                    <span class="app-tag"><i class="fas fa-utensils"></i> Restaurants</span>
+                    <span class="app-tag"><i class="fas fa-hospital"></i> Healthcare</span>
+                </div>
+                
+                <div class="service-cta">
+                    <a href="{{ url_for('quote') }}" class="btn btn-primary btn-3d">Request a Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Overview -->
+<section class="process-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2>Our Installation Process</h2>
+            <p>Professional results through proven methodology</p>
+        </div>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h3>Consultation</h3>
+                <p>We assess your space, discuss your vision, and provide expert recommendations tailored to your needs.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h3>Surface Preparation</h3>
+                <p>Thorough grinding, cleaning, and repair of the concrete substrate to ensure optimal adhesion.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h3>Application</h3>
+                <p>Expert installation of primer, base coats, decorative elements, and topcoats using premium Soprema systems.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h3>Curing & Inspection</h3>
+                <p>Proper curing time followed by thorough inspection to ensure a flawless, durable finish.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="section-container">
+        <div class="cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Request a free quote and let's bring your flooring vision to life</p>
+            <a href="{{ url_for('quote') }}" class="btn btn-primary btn-3d btn-lg">Get Your Free Quote</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

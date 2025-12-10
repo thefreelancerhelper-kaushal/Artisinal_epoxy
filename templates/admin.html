@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - Nova Scotia Epoxy Flooring{% endblock %}
+
+{% block content %}
+<!-- Admin Header with Logout -->
+<div class="admin-header">
+    <div class="section-container admin-header-content">
+        <div>
+            <h1>Admin Panel</h1>
+            <p>View all messages, contacts, and quote requests</p>
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</div>
+
+<!-- Admin Content -->
+<section class="admin-section">
+    <div class="section-container">
+        <!-- Stats Summary -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Total Messages</h3>
+                    <p class="stat-number">{{ total_messages }}</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-comments"></i>
+                <div>
+                    <h3>Contact Inquiries</h3>
+                    <p class="stat-number">{{ contacts|length }}</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <h3>Quote Requests</h3>
+                    <p class="stat-number">{{ quotes|length }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs for different message types -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showTab('contacts-tab')">
+                <i class="fas fa-comments"></i> Contact Messages
+            </button>
+            <button class="tab-btn" onclick="showTab('quotes-tab')">
+                <i class="fas fa-file-alt"></i> Quote Requests
+            </button>
+        </div>
+
+        <!-- Contact Messages Tab -->
+        <div id="contacts-tab" class="tab-content active">
+            <h2>Contact Messages</h2>
+            {% if contacts %}
+                <div class="messages-list">
+                    {% for message in contacts|reverse %}
+                    <div class="message-card">
+                        <div class="message-header">
+                            <div>
+                                <h3>{{ message.name }}</h3>
+                                <p class="message-meta">
+                                    <i class="fas fa-envelope"></i> {{ message.email }}
+                                    {% if message.phone %}
+                                    | <i class="fas fa-phone"></i> {{ message.phone }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <span class="message-date">{{ message.timestamp[:10] }}</span>
+                        </div>
+                        <div class="message-body">
+                            <p>{{ message.message }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No contact messages yet</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Quote Requests Tab -->
+        <div id="quotes-tab" class="tab-content">
+            <h2>Quote Requests</h2>
+            {% if quotes %}
+                <div class="messages-list">
+                    {% for quote in quotes|reverse %}
+                    <div class="message-card quote-card">
+                        <div class="message-header">
+                            <div>
+                                <h3>{{ quote.name }}</h3>
+                                <p class="message-meta">
+                                    <i class="fas fa-envelope"></i> {{ quote.email }}
+                                    | <i class="fas fa-phone"></i> {{ quote.phone }}
+                                </p>
+                            </div>
+                            <span class="message-date">{{ quote.timestamp[:10] }}</span>
+                        </div>
+                        <div class="message-body">
+                            <div class="quote-details">
+                                <div class="detail-row">
+                                    <span class="label">Address:</span>
+                                    <span>{{ quote.address }}</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Project Type:</span>
+                                    <span>{{ quote.project_type }}</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="label">Flooring Type:</span>
+                                    <span>{{ quote.flooring_type }}</span>
+                                </div>
+                                {% if quote.square_footage %}
+                                <div class="detail-row">
+                                    <span class="label">Square Footage:</span>
+                                    <span>{{ quote.square_footage }} sq ft</span>
+                                </div>
+                                {% endif %}
+                                {% if quote.timeline %}
+                                <div class="detail-row">
+                                    <span class="label">Timeline:</span>
+                                    <span>{{ quote.timeline }}</span>
+                                </div>
+                                {% endif %}
+                                {% if quote.details %}
+                                <div class="detail-row full">
+                                    <span class="label">Additional Details:</span>
+                                    <p>{{ quote.details }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No quote requests yet</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<style>
+.admin-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 30px 20px;
+}
+
+.admin-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    color: white;
+    margin: 0;
+    font-size: 32px;
+}
+
+.admin-header p {
+    color: rgba(255,255,255,0.8);
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.admin-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: calc(100vh - 200px);
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stat-card i {
+    font-size: 28px;
+    color: #1e3c72;
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e3c72;
+    margin: 5px 0 0 0;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #1e3c72;
+    border-bottom-color: #1e3c72;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.messages-list {
+    display: grid;
+    gap: 15px;
+}
+
+.message-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.message-header h3 {
+    margin: 0 0 5px 0;
+    color: #1e3c72;
+    font-size: 18px;
+}
+
+.message-meta {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+}
+
+.message-meta i {
+    margin-right: 5px;
+}
+
+.message-date {
+    color: #999;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.message-body {
+    color: #666;
+    line-height: 1.6;
+}
+
+.message-body p {
+    margin: 0;
+}
+
+.quote-details {
+    display: grid;
+    gap: 10px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+}
+
+.detail-row.full {
+    grid-template-columns: 1fr;
+}
+
+.detail-row .label {
+    font-weight: 600;
+    color: #1e3c72;
+}
+
+.detail-row p {
+    margin: 0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .message-header {
+        flex-direction: column;
+    }
+    
+    .message-date {
+        margin-top: 10px;
+    }
+}
+</style>
+
+<script>
+function showTab(tabId) {
+    // Hide all tabs
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected tab
+    document.getElementById(tabId).classList.add('active');
+    
+    // Add active class to clicked button
+    event.target.classList.add('active');
+}
+</script>
+{% endblock %}

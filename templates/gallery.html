@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - Artisinal Epoxy NovaScotia Projects{% endblock %}
+
+{% block content %}
+<!-- Gallery Hero -->
+<section class="page-hero">
+    <div class="section-container">
+        <h1>Our Work</h1>
+        <p>Explore our portfolio of stunning epoxy flooring installations across Nova Scotia</p>
+    </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="gallery-section">
+    <div class="section-container">
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="metallic">Metallic</button>
+            <button class="filter-btn" data-filter="flake">Flake</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item" data-category="metallic residential">
+                <img src="{{ url_for('static', filename='images/gallery1_metalic.jpg') }}" alt="Metallic epoxy garage floor">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Metallic Garage Floor</h3>
+                        <p>Residential • Halifax, NS</p>
+                        <span class="gallery-tag">Metallic Epoxy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item" data-category="commercial">
+                <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Commercial retail epoxy flooring">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Retail Showroom</h3>
+                        <p>Commercial • Dartmouth, NS</p>
+                        <span class="gallery-tag">Commercial Coating</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item" data-category="flake residential">
+                <img src="{{ url_for('static', filename='images/gallery3.png') }}" alt="Flake epoxy basement floor">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Basement Renovation</h3>
+                        <p>Residential • Bedford, NS</p>
+                        <span class="gallery-tag">Flake System</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item" data-category="metallic commercial">
+                <img src="{{ url_for('static', filename='images/showroom.jpg') }}" alt="Metallic epoxy showroom floor">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Auto Showroom</h3>
+                        <p>Commercial • Truro, NS</p>
+                        <span class="gallery-tag">Metallic Epoxy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 10 - New -->
+            <div class="gallery-item" data-category="metallic residential">
+                <img src="{{ url_for('static', filename='images/gallery99.jpg') }}" alt="Professional epoxy floor installation">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Epoxy Installation</h3>
+                        <p>Residential • Professional Installation</p>
+                        <span class="gallery-tag">Metallic Epoxy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 11 - New -->
+            <div class="gallery-item" data-category="metallic commercial">
+                <img src="{{ url_for('static', filename='images/gallery4.jpg') }}" alt="Premium metallic epoxy floor">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Metallic Showroom</h3>
+                        <p>Commercial • Premium Finish</p>
+                        <span class="gallery-tag">Metallic Epoxy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 12 - New -->
+            <div class="gallery-item" data-category="metallic residential">
+                <img src="{{ url_for('static', filename='images/industry.jpg') }}" alt="Industrial epoxy coating">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Industrial Application</h3>
+                        <p>Commercial • Heavy Duty</p>
+                        <span class="gallery-tag">Industrial Coating</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 13 - New -->
+            <div class="gallery-item" data-category="commercial">
+                <img src="{{ url_for('static', filename='images/gallery-application.jpg') }}" alt="Epoxy pouring process">
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Application Process</h3>
+                        <p>Commercial • Expert Application</p>
+                        <span class="gallery-tag">Professional Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <div class="section-container">
+        <div class="section-header">
+            <h2>What Our Clients Say</h2>
+            <p>Trusted by homeowners and businesses across Nova Scotia</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Absolutely stunning! Our garage floor went from dull concrete to a beautiful metallic masterpiece. The team was professional, on time, and the quality is exceptional."</p>
+                <div class="testimonial-author">
+                    <strong>Sarah M.</strong>
+                    <span>Halifax, NS</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"We needed a durable solution for our warehouse, and Nova Scotia Epoxy delivered. The floor looks great and has held up perfectly to heavy equipment and constant traffic."</p>
+                <div class="testimonial-author">
+                    <strong>Mike T.</strong>
+                    <span>Dartmouth, NS</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The flake system in our basement is perfect. It's easy to clean, looks fantastic, and the slip resistance gives us peace of mind with kids running around."</p>
+                <div class="testimonial-author">
+                    <strong>Jennifer L.</strong>
+                    <span>Bedford, NS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="section-container">
+        <div class="cta-content">
+            <h2>Want Floors Like These?</h2>
+            <p>Get a free quote and let's create something amazing together</p>
+            <a href="{{ url_for('quote') }}" class="btn btn-primary btn-3d btn-lg">Request Your Free Quote</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
