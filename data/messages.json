@@ -1,0 +1,30 @@
+[
+  {
+    "type": "quote",
+    "name": "Freelancer",
+    "email": "freelancer@gmail.com",
+    "phone": "1231234455",
+    "address": "India",
+    "project_type": "residential",
+    "flooring_type": "metallic",
+    "square_footage": "2000",
+    "timeline": "2-3months",
+    "details": "",
+    "timestamp": "2025-11-27T06:05:42.766410",
+    "id": 1
+  },
+  {
+    "type": "quote",
+    "name": "garry",
+    "email": "ga@gmail.com",
+    "phone": "5555444432",
+    "address": "halelui",
+    "project_type": "residential",
+    "flooring_type": "flake",
+    "square_footage": "1500",
+    "timeline": "2-3months",
+    "details": "",
+    "timestamp": "2025-12-01T16:29:26.715898",
+    "id": 2
+  }
+]
